@@ -1,3 +1,5 @@
+from disp_tools import top, frequency
+
 def count_words(filename: str) -> dict:
     """ Подсчитывает количество слов в файле.
         Возвращает словарь, содержащий количество каждого слова в файле.
@@ -19,8 +21,12 @@ def main():
     filename = "example.txt"
     word_count = count_words(filename)
 
-    for word in word_count:
-        print(word, word_count[word])
+    print('Топ 5 слов')
+    top(5, word_count)
+
+    print('Слова, встречающиеся не менее 2000 раз')
+    frequency(word_count, 2000)
+
 
 
 if __name__ == "__main__":
