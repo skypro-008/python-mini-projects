@@ -46,12 +46,18 @@ def test_can_get_playlist_videos(mocker):
 
 # Tests for get_video_info() function
 def test_can_get_video_info(mocker):
-    pass
+    mock_video_info = mock.MagicMock()
+    mocker.patch('youtube_api.get_service', return_value=mock_video_info)
+    video_info = get_video_info('test_video_id')
+    assert video_info == mock_video_info
 
 
 # Tests for get_video_stats() function
 def test_can_get_video_stats(mocker):
-    pass
+    mock_video_info = {'items': [{'statistics': {'viewCount': '1000', 'likeCount': '50', 'commentCount': '10'}}]}
+    mocker.patch('youtube_api.get_video_info', return_value=mock_video_info)
+    video_stats = get_video_stats('test_video_id')
+    assert video_stats == {'view_count': 1000, 'like_count': 50, 'comment_count': 10}
 
 
 def test_raises_error_if_video_not_found(mocker):
