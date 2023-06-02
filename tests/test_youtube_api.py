@@ -3,8 +3,11 @@ from unittest import mock
 
 import pytest
 from dotenv import load_dotenv
+from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-from src.youtube_api import *
+
+from src.youtube_api import (get_service, get_channel_info, get_channel_playlists, get_playlist_videos,
+                             get_video_info, get_video_stats)
 
 load_dotenv()
 
@@ -15,7 +18,7 @@ API_KEY: str = os.getenv('YT_API_KEY')
 def test_can_create_service(mocker):
     mocker.patch('youtube_api.build')
     get_service()
-    youtube_api.build.assert_called_once_with('youtube', 'v3', developerKey=API_KEY)
+    build.assert_called_once_with('youtube', 'v3', developerKey=API_KEY)
 
 
 # Tests for get_channel_info() function
