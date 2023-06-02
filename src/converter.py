@@ -4,7 +4,7 @@ import json
 def json_to_csv():
     try:
         with open('input.json', 'r') as f:
-            data = json.loads(f.read())
+            data = json.load(f)
 
         output = ','.join([*data[0]])
         for obj in data:
