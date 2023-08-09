@@ -1,0 +1,32 @@
+[
+  {
+    "store": "Store A",
+    "date": "2022-01-01",
+    "sales": 100
+  },
+  {
+    "store": "Store B",
+    "date": "2022-01-01",
+    "sales": 150
+  },
+  {
+    "store": "Store A",
+    "date": "2022-01-02",
+    "sales": 200
+  },
+  {
+    "store": "Store B",
+    "date": "2022-01-02",
+    "sales": 250
+  },
+  {
+    "store": "Store A",
+    "date": "2022-01-03",
+    "sales": 300
+  },
+  {
+    "store": "Store B",
+    "date": "2022-01-03",
+    "sales": 350
+  }
+]
